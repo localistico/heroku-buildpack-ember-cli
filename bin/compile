@@ -32,9 +32,6 @@ cp $BP_DIR/scripts/rewrite-index-meta $BUILD_DIR/bin/rewrite-index-meta
 cp $BP_DIR/scripts/set-cdn-prefix $BUILD_DIR/bin/set-cdn-prefix
 cp -n $BP_DIR/scripts/Procfile $BUILD_DIR/Procfile
 
-echo "-----> Copying static.json to application slug"
-cp -n $BP_DIR/scripts/static.json $BUILD_DIR/static.json
-
 echo "-----> Installing Bower package manager"
 cd $BUILD_DIR
 npm install bower
