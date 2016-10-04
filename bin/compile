@@ -34,7 +34,7 @@ cp -n $BP_DIR/scripts/Procfile $BUILD_DIR/Procfile
 
 env_specific_config=$BP_DIR/scripts/static.$EMBER_ENV.json
 if [ -f "$env_specific_config" ]; then
-    echo "-----> Copying $env_specific_config to application slug"
+    echo "-----> Copying static.$EMBER_ENV.json to application slug"
     cp -n $env_specific_config $BUILD_DIR/static.json
 else
     echo "-----> Copying static.json to application slug"
