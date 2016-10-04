@@ -32,8 +32,14 @@ cp $BP_DIR/scripts/rewrite-index-meta $BUILD_DIR/bin/rewrite-index-meta
 cp $BP_DIR/scripts/set-cdn-prefix $BUILD_DIR/bin/set-cdn-prefix
 cp -n $BP_DIR/scripts/Procfile $BUILD_DIR/Procfile
 
-echo "-----> Copying environment-specific static.json to application slug"
-cp -n $BP_DIR/scripts/static.$EMBER_ENV.json $BUILD_DIR/static.json
+env_specific_config=$BP_DIR/scripts/static.$EMBER_ENV.json
+if [ -f "$env_specific_config" ]; then
+    echo "-----> Copying $env_specific_config to application slug"
+    cp -n $env_specific_config $BUILD_DIR/static.json
+else
+    echo "-----> Copying static.json to application slug"
+    cp -n $BP_DIR/scripts/static.json $BUILD_DIR/static.json
+fi
 
 echo "-----> Installing Bower package manager"
 cd $BUILD_DIR
