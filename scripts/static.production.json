@@ -24,5 +24,6 @@
     "/api/": {
       "origin": "${API_URL}/api"
     }
-  }
+  },
+  "max_body_size": "5M"
 }
